@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PIKX · Clash Royale</title>
+<meta name="description" content="Tabla semanal, torneos y videos de TikTok de la comunidad PIKX de Clash Royale.">
+<link rel="icon" href="PIKX_LOGO.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--panel:#0b1218;--line:#16303f;--cy:#00bfff;--tx:#fff;--mut:#8ea3b0;--win:#3ddc97;--lose:#ff5d6c;
+--cut:polygon(14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%,0 14px)}
+*{box-sizing:border-box;margin:0}
+html{scroll-padding-top:70px}
+body{background:var(--bg);color:var(--tx);font:400 16px/1.6 Barlow,system-ui,sans-serif}
+h1,h2,h3,.brand,nav a,.btn,th{font-family:'Chakra Petch',system-ui,sans-serif}
+a{color:var(--cy)}
+:focus-visible{outline:2px solid var(--cy);outline-offset:3px}
+header{position:sticky;top:0;z-index:5;background:#000e;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{max-width:1040px;margin:auto;padding:8px 20px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:#fff;text-decoration:none}
+.brand img{width:38px;height:38px}
+nav{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+nav a{color:var(--mut);text-decoration:none;padding:6px 12px;font-weight:500}
+nav a:hover,nav a.on{color:#fff;box-shadow:inset 0 -2px var(--cy)}
+main{max-width:1040px;margin:auto;padding:0 20px 60px}
+section{padding-top:56px}
+h2{font-size:30px;margin-bottom:6px}
+.sub{color:var(--mut);margin-bottom:22px;max-width:62ch}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;padding-top:44px}
+.hero h1{font-size:clamp(34px,6vw,58px);line-height:1.05;margin-bottom:14px}
+.hero h1 span{color:var(--cy)}
+.hero p{color:var(--mut);max-width:48ch;margin-bottom:22px}
+.hero img{width:100%;max-width:380px;justify-self:center;display:block}
+.btn{display:inline-block;background:var(--cy);color:#001;font-weight:700;padding:11px 22px;text-decoration:none;clip-path:var(--cut);margin-right:8px;border:0;cursor:pointer;font-size:16px}
+.btn.ghost{background:#fff}
+.btn:hover{filter:brightness(1.12)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-top:40px}
+.box{background:var(--panel);padding:18px 20px;clip-path:var(--cut);border-left:3px solid var(--cy)}
+.box b{font:700 28px 'Chakra Petch',sans-serif;display:block}
+.box small{color:var(--mut)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:14px}
+.steps .box h3{font-size:18px;margin-bottom:4px}
+.steps .box p{color:var(--mut);font-size:15px}
+.wrap{overflow-x:auto;background:var(--panel);clip-path:var(--cut)}
+table{width:100%;border-collapse:collapse;min-width:520px}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line)}
+th{color:var(--mut);font-weight:500;font-size:14px}
+td.n,th.n{text-align:center}
+tr:first-child td{background:#00bfff14}
+.pos{font:700 18px 'Chakra Petch',sans-serif;color:var(--cy)}
+.w{color:var(--win)}.l{color:var(--lose)}
+.pts{font-weight:700}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}
+.card{background:var(--panel);padding:20px;clip-path:var(--cut);display:flex;flex-direction:column;gap:6px}
+.card h3{font-size:20px}
+.card .meta{color:var(--mut);font-size:14px}
+.tag{display:inline-block;align-self:flex-start;font-size:13px;font-weight:600;padding:2px 10px;background:#00bfff22;color:var(--cy)}
+.tag.live{background:#3ddc9722;color:var(--win)}
+.tag.end{background:#ffffff18;color:var(--mut)}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;text-align:center}
+.vs b{font:700 18px 'Chakra Petch',sans-serif}
+.vs i{font:700 14px 'Chakra Petch';color:var(--cy);font-style:normal}
+.vs .win{color:var(--win)}
+.rules{margin-top:22px;padding:20px 24px;background:var(--panel);clip-path:var(--cut)}
+.rules ul{padding-left:20px;color:var(--mut)}
+.rules li{margin:4px 0}
+.post{background:var(--panel);padding:20px 22px;clip-path:var(--cut);margin-bottom:14px}
+.post h3{font-size:21px;margin:2px 0 6px}
+.post .meta{color:var(--mut);font-size:14px}
+.post details p{color:#cfdbe3;margin-top:10px;max-width:70ch}
+.post summary{cursor:pointer;color:var(--cy);font-weight:600;margin-top:8px}
+.warn{margin-top:60px;padding:18px 22px;border:1px solid var(--line);color:var(--mut);font-size:14px}
+.warn b{color:#fff}
+footer{border-top:1px solid var(--line);text-align:center;color:var(--mut);padding:24px 20px;font-size:14px}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.hero img{max-width:240px;order:-1}nav{margin-left:0}}
+@media(prefers-reduced-motion:no-preference){.hero img{animation:in .9s cubic-bezier(.2,.8,.2,1)}@keyframes in{from{opacity:0;transform:scale(.92)}}}
+
+/* ===== Fondo estilo Clash Royale ===== */
+:root{--panel:#08122ddb;--line:#2b4ba3;--gold:#ffc83d}
+body{background:
+ radial-gradient(circle at 12% 8%,#ff3fd440,transparent 38%),
+ radial-gradient(circle at 88% 28%,#00bfff44,transparent 42%),
+ radial-gradient(circle at 50% 100%,#ffc83d22,transparent 45%),
+ linear-gradient(160deg,#0b2166 0%,#14307f 38%,#2a1272 100%) fixed}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+ background:conic-gradient(#ffffff0d 25%,transparent 0 50%,#ffffff0d 0 75%,transparent 0) 0 0/72px 72px}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+ background:radial-gradient(ellipse at center,transparent 55%,#000a 100%)}
+header{background:#050b24ee}
+.fx{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.drop{position:absolute;bottom:-40px;width:22px;height:22px;background:linear-gradient(135deg,#ff8cf0,#d11fc0);
+ border-radius:50% 50% 50% 0;transform:rotate(-45deg);opacity:.5;animation:rise linear infinite}
+@keyframes rise{to{transform:translateY(-115vh) rotate(-45deg)}}
+@media(prefers-reduced-motion:reduce){.drop{display:none}}
+
+/* ===== Botones dinámicos ===== */
+.btn{position:relative;overflow:hidden;transition:transform .15s ease,filter .15s ease;margin-bottom:6px}
+.btn::after{content:"";position:absolute;top:0;left:-80%;width:45%;height:100%;
+ background:linear-gradient(100deg,transparent,#fffa,transparent);transform:skewX(-20deg);transition:left .55s ease}
+.btn:hover{transform:translateY(-3px) scale(1.04);filter:brightness(1.1)}
+.btn:hover::after{left:140%}
+.btn:active{transform:translateY(1px) scale(.96)}
+.btn.gold{background:linear-gradient(180deg,#ffe07a,var(--gold) 55%,#e39a00);color:#3a2300}
+.btn[disabled]{background:#3a4770;color:#9aa8d0;cursor:not-allowed;transform:none;filter:none}
+.btn[disabled]::after{display:none}
+nav a{transition:color .15s,transform .15s}
+nav a:hover{transform:translateY(-2px)}
+
+/* ===== Cards de torneo ===== */
+.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:22px}
+.tcard{background:var(--panel);clip-path:var(--cut);display:flex;flex-direction:column;transition:transform .25s ease;border-top:4px solid var(--gold)}
+.tcard:hover{transform:translateY(-8px)}
+.art{position:relative;height:170px;display:grid;place-items:center;overflow:hidden;
+ background:repeating-linear-gradient(45deg,#ffffff10 0 14px,transparent 14px 28px),radial-gradient(circle at 50% 60%,var(--c1),var(--c2))}
+.art .big{position:absolute;font-size:190px;opacity:.13;right:-30px;bottom:-50px;transform:rotate(-12deg);line-height:1}
+.art .char{position:relative;font-size:92px;line-height:1;filter:drop-shadow(0 8px 6px #0009);transition:transform .3s ease}
+.tcard:hover .char{transform:scale(1.18) rotate(-6deg)}
+.art img{position:relative;height:150px;transition:transform .3s}
+.tcard:hover .art img{transform:scale(1.12)}
+.ribbon{position:absolute;top:12px;left:0;padding:3px 16px 3px 12px;font:700 13px 'Chakra Petch',sans-serif;
+ background:var(--gold);color:#3a2300;clip-path:polygon(0 0,100% 0,calc(100% - 10px) 50%,100% 100%,0 100%)}
+.ribbon.live{background:var(--win)}.ribbon.end{background:#b7c3e6}
+.cname{position:absolute;bottom:8px;right:12px;font:700 14px 'Chakra Petch',sans-serif;color:#fff;text-shadow:0 2px 4px #000}
+.tbody{padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px;flex:1}
+.tbody h3{font-size:22px;line-height:1.15}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{background:#ffffff14;padding:3px 10px;font-size:14px;font-weight:600}
+.prog{height:10px;background:#ffffff1c;overflow:hidden}
+.prog i{display:block;height:100%;background:linear-gradient(90deg,#ff8cf0,#d11fc0);transition:width .6s}
+.cupos{font-size:13px;color:var(--mut);margin-top:-4px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:4px}
+.actions .btn{flex:1;margin:0;padding:10px 12px;font-size:15px;white-space:nowrap}
+
+/* ===== Modal ===== */
+dialog{border:0;padding:0;background:transparent;color:var(--tx);max-width:min(560px,94vw);width:100%;max-height:92vh;overflow:visible;margin:auto}
+dialog::backdrop{background:#020618cc;backdrop-filter:blur(3px)}
+.mbox{background:#0a1640;border-top:4px solid var(--gold);clip-path:var(--cut);max-height:90vh;overflow-y:auto}
+dialog[open] .mbox{animation:pop .25s cubic-bezier(.2,.9,.3,1.2)}
+@keyframes pop{from{opacity:0;transform:scale(.85) translateY(20px)}}
+@media(prefers-reduced-motion:reduce){dialog[open] .mbox{animation:none}}
+.mbox .art{height:150px}
+.mclose{position:absolute;top:10px;right:10px;z-index:2;width:38px;height:38px;border:0;background:#000a;color:#fff;font-size:22px;cursor:pointer;transition:transform .2s,background .2s}
+.mclose:hover{background:var(--lose);transform:rotate(90deg)}
+.mcontent{padding:18px 22px 22px}
+.mcontent h3{font-size:26px;margin-bottom:4px}
+.mcontent h4{font:700 17px 'Chakra Petch',sans-serif;margin:16px 0 6px;color:var(--gold)}
+.mcontent ul{padding-left:20px;color:#cfdbe3}
+.mcontent p{color:#cfdbe3}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+.mgrid div{background:#ffffff12;padding:8px 12px}
+.mgrid small{display:block;color:var(--mut);font-size:12px}
+.mact{display:flex;gap:8px;margin-top:20px;flex-wrap:wrap}
+.mact .btn{margin:0}
+
+.vgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.vcard{background:var(--panel);clip-path:var(--cut);border-top:4px solid var(--gold);padding:10px;transition:transform .25s}
+.vcard:hover{transform:translateY(-6px)}
+.vcard iframe{display:block;width:100%;aspect-ratio:9/16;border:0;background:#000}
+.vcard a{display:block;text-align:center;margin-top:8px;font-weight:600;font-size:14px}
+.vempty{background:var(--panel);padding:22px;color:var(--mut);clip-path:var(--cut);grid-column:1/-1}
+</style>
+</head>
+<body>
+<div class="fx" id="fx" aria-hidden="true"></div>
+<header><div class="bar">
+  <a class="brand" href="#inicio"><img src="PIKX_LOGO.jpg" alt="Logo PIKX">PIKX</a>
+  <nav id="nav">
+    <a href="#inicio">Inicio</a><a href="#tabla">Tabla semanal</a><a href="#torneos">Torneos</a><a href="#videos">Videos</a>
+  </nav>
+</div></header>
+
+<main>
+<section id="inicio" class="hero" style="padding-top:44px">
+  <div>
+    <h1>Clash Royale se juega <span>en serio</span> en PIKX</h1>
+    <p>Comunidad de jugadores de Clash Royale en WhatsApp. Aquí encuentras la tabla de la semana, los torneos abiertos y los mejores videos de la comunidad.</p>
+    <a class="btn" id="wa1" href="#">Unirme al canal</a><a class="btn ghost" href="#tabla">Ver la tabla</a>
+  </div>
+  <img src="PIKX_LOGO.jpg" alt="PIKX">
+</section>
+
+<div class="stats" id="stats"></div>
+
+<section id="como">
+  <h2>Cómo funciona</h2>
+  <p class="sub">Todo se organiza desde el canal de WhatsApp. Esta página solo muestra los resultados.</p>
+  <div class="steps">
+    <div class="box"><h3>Únete al canal</h3><p>Entra por el enlace y activa las notificaciones para ver los anuncios.</p></div>
+    <div class="box"><h3>Elige tu partida</h3><p>Elige el torneo que más te guste y reserva tu cupo.</p></div>
+    <div class="box"><h3>Envía tu captura</h3><p>Cada resultado se confirma con captura de la batalla o el replay.</p></div>
+    <div class="box"><h3>Sube en la tabla</h3><p>Los puntos de la semana se actualizan aquí cada vez que se confirma un resultado.</p></div>
+  </div>
+</section>
+
+<section id="tabla">
+  <h2>Tabla semanal</h2>
+  <p class="sub" id="weekLabel"></p>
+  <div class="wrap"><table>
+    <thead><tr><th class="n">Pos.</th><th>Jugador</th><th>Tag</th><th class="n">Victorias</th><th class="n">Derrotas</th><th class="n">Puntos</th></tr></thead>
+    <tbody id="tbody"></tbody>
+  </table></div>
+  <p class="sub" style="margin-top:10px;font-size:14px" id="pointsRule"></p>
+</section>
+
+<section id="torneos">
+  <h2>Torneos</h2>
+  <p class="sub">Inscríbete por WhatsApp antes de que cierre el cupo.</p>
+  <div class="cards" id="tournaments"></div>
+</section>
+
+<section id="videos">
+  <h2>Videos</h2>
+  <p class="sub">Las mejores partidas y momentos de la comunidad en TikTok.</p>
+  <div class="vgrid" id="videos-grid"></div>
+  <p style="margin-top:18px"><a class="btn gold" id="tt" href="#" target="_blank" rel="noopener">Ver más en TikTok</a></p>
+</section>
+
+<div class="warn"><b>Aviso importante.</b> Esta página es solo informativa. Participar en apuestas es solo para mayores de 18 años y debe cumplir las leyes de tu país. Apuesta únicamente lo que puedas permitirte perder. Si el juego deja de ser diversión, pide ayuda. Esta comunidad no está afiliada, respaldada ni patrocinada por Supercell. Clash Royale es marca de Supercell.</div>
+</main>
+<footer>© <span id="yr"></span> PIKX · Comunidad de Clash Royale</footer>
+
+<dialog id="modal" aria-labelledby="mtitle"><div class="mbox" id="mbox"></div></dialog>
+<script>
+/* ===== EDITA SOLO ESTA PARTE ===== */
+const CONFIG = {
+  whatsapp: "https://whatsapp.com/channel/TU_ENLACE_AQUI",
+  contacto: "",  // número del admin con código de país, sin + ni espacios (ej. 51999999999). Si lo dejas vacío, "Inscribirme" abre el canal.
+  semana: "Semana del 12 al 18 de octubre de 2026",
+  puntos: { victoria: 3, derrota: 0 },   // puntos por resultado
+  tiktok: "https://www.tiktok.com/@tu_usuario",  // tu perfil de TikTok
+};
+const JUGADORES = [
+  { nombre: "Jugador Uno",   tag: "#AAAA111", v: 9, d: 2 },
+  { nombre: "Jugador Dos",   tag: "#BBBB222", v: 8, d: 3 },
+  { nombre: "Jugador Tres",  tag: "#CCCC333", v: 7, d: 4 },
+  { nombre: "Jugador Cuatro",tag: "#DDDD444", v: 5, d: 5 },
+  { nombre: "Jugador Cinco", tag: "#EEEE555", v: 3, d: 6 }
+];
+/* estado: "abierto" | "en vivo" | "finalizado" */
+const TORNEOS = [
+  { nombre: "Copa PIKX semanal", fecha: "Sábado 17 oct · 8:00 p. m.", formato: "Eliminación directa · mejor de 3", estado: "abierto",
+    emoji: "🧙‍♂️", personaje: "Mago", c1: "#8b4dff", c2: "#2a1070", cupos: 16, inscritos: 11, entrada: "$5",
+    descripcion: "El torneo principal de la semana. Llaves de 16 jugadores y final en vivo narrada en el canal.",
+    premios: ["1.er puesto: 60 % del pozo", "2.º puesto: 25 % del pozo", "3.er puesto: 15 % del pozo"],
+    reglas: ["Mazo libre, sin cambios entre batallas.", "Cada duelo se juega en partida amistosa.", "Captura o replay obligatorio para confirmar.", "Tolerancia de 10 minutos por partido."] },
+  { nombre: "Desafío triple elixir", fecha: "Domingo 18 oct · 7:00 p. m.", formato: "Todos contra todos · mejor de 1", estado: "abierto",
+    emoji: "🐲", personaje: "Bebé dragón", c1: "#ff8a3d", c2: "#8a1d12", cupos: 8, inscritos: 6, entrada: "$3",
+    descripcion: "Partidas rápidas con elixir triple. Gana quien sume más victorias al final de la jornada.",
+    premios: ["1.er puesto: 70 % del pozo", "2.º puesto: 30 % del pozo"],
+    reglas: ["Se juega en modo Triple elixir.", "Un solo mazo por jugador durante todo el torneo.", "Desempate por duelo directo."] },
+  { nombre: "Copa PIKX anterior", fecha: "Sábado 10 oct", formato: "Eliminación directa · 16 jugadores", estado: "finalizado",
+    emoji: "👑", personaje: "Rey", c1: "#ffd45a", c2: "#7a5200", cupos: 16, inscritos: 16, entrada: "$5",
+    descripcion: "Edición pasada. El campeón fue Jugador Uno, que venció en la final por 2 a 1.",
+    premios: ["Campeón: Jugador Uno", "Subcampeón: Jugador Tres"],
+    reglas: ["Torneo cerrado. Resultados confirmados."] }
+];
+/* ganador: nombre del ganador, o "" si aún no se juega */
+/* Pega aquí los enlaces completos de tus videos de TikTok (deben tener /video/NÚMERO).
+   Si copias un enlace corto (vm.tiktok.com), ábrelo en el navegador y copia la dirección final. */
+const VIDEOS = [
+  "https://www.tiktok.com/@usuario/video/0000000000000000000",
+  "https://www.tiktok.com/@usuario/video/0000000000000000001"
+];
+/* ===== FIN DE LA ZONA EDITABLE ===== */
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+$("wa1").href = CONFIG.whatsapp;
+$("tt").href = CONFIG.tiktok;
+$("yr").textContent = new Date().getFullYear();
+$("weekLabel").textContent = CONFIG.semana + ". Se ordena por puntos.";
+$("pointsRule").textContent = `Cada victoria suma ${CONFIG.puntos.victoria} puntos y cada derrota suma ${CONFIG.puntos.derrota}.`;
+
+const tabla = JUGADORES.map(j => ({...j, p: j.v*CONFIG.puntos.victoria + j.d*CONFIG.puntos.derrota}))
+  .sort((a,b) => b.p - a.p || b.v - a.v);
+$("tbody").innerHTML = tabla.map((j,i) => `<tr><td class="n pos">${i+1}</td><td>${esc(j.nombre)}</td><td>${esc(j.tag)}</td><td class="n w">${j.v}</td><td class="n l">${j.d}</td><td class="n pts">${j.p}</td></tr>`).join("");
+
+const abiertos = TORNEOS.filter(t => t.estado !== "finalizado").length;
+$("stats").innerHTML = [
+  [JUGADORES.length, "jugadores en la tabla"],
+  [abiertos, "torneos disponibles"],
+  [VIDEOS.length, "videos publicados"],
+  [tabla[0].nombre, "líder de la semana"]
+].map(([n,l]) => `<div class="box"><b>${esc(n)}</b><small>${l}</small></div>`).join("");
+
+const cls = {abierto:"", "en vivo":"live", finalizado:"end"};
+
+function art(t){
+  const fig = t.imagen ? `<img src="${esc(t.imagen)}" alt="${esc(t.personaje)}">` : `<span class="char" aria-hidden="true">${t.emoji}</span>`;
+  const rb = t.estado === "abierto" ? "" : (t.estado === "en vivo" ? "live" : "end");
+  return `<div class="art" style="--c1:${t.c1};--c2:${t.c2}"><span class="big" aria-hidden="true">${t.emoji}</span><span class="ribbon ${rb}">${esc(t.estado)}</span>${fig}<span class="cname">${esc(t.personaje)}</span></div>`;
+}
+function estadoBtn(t){
+  if (t.estado === "finalizado") return {txt:"Finalizado", off:true};
+  if (t.inscritos >= t.cupos) return {txt:"Cupo lleno", off:true};
+  return {txt:"Inscribirme", off:false};
+}
+$("tournaments").className = "tgrid";
+$("tournaments").innerHTML = TORNEOS.map((t,i) => {
+  const b = estadoBtn(t), pct = Math.min(100, Math.round(t.inscritos/t.cupos*100));
+  return `<article class="tcard">${art(t)}<div class="tbody"><h3>${esc(t.nombre)}</h3><div class="meta" style="color:var(--mut);font-size:14px">${esc(t.fecha)}</div>
+  <div class="chips"><span>💧 Entrada ${esc(t.entrada)}</span><span>⚔️ ${esc(t.formato.split(" · ")[0])}</span></div>
+  <div class="prog" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100"><i style="width:${pct}%"></i></div><div class="cupos">${t.inscritos} de ${t.cupos} cupos ocupados</div>
+  <div class="actions"><button class="btn gold" data-ins="${i}" ${b.off?"disabled":""}>${b.txt}</button><button class="btn ghost" data-det="${i}">Ver detalles</button></div></div></article>`;
+}).join("");
+
+function inscribir(t){
+  const msg = encodeURIComponent(`Hola, quiero inscribirme al torneo "${t.nombre}" (${t.fecha}).`);
+  const url = CONFIG.contacto ? `https://wa.me/${CONFIG.contacto}?text=${msg}` : CONFIG.whatsapp;
+  window.open(url, "_blank", "noopener");
+}
+const modal = $("modal");
+function detalles(i){
+  const t = TORNEOS[i], b = estadoBtn(t);
+  $("mbox").innerHTML = `<div style="position:relative">${art(t)}<button class="mclose" aria-label="Cerrar" data-close>×</button></div>
+  <div class="mcontent"><h3 id="mtitle">${esc(t.nombre)}</h3><p>${esc(t.descripcion)}</p>
+  <div class="mgrid"><div><small>Fecha y hora</small>${esc(t.fecha)}</div><div><small>Formato</small>${esc(t.formato)}</div><div><small>Entrada</small>${esc(t.entrada)}</div><div><small>Cupos</small>${t.inscritos} de ${t.cupos} ocupados</div></div>
+  <h4>Premios</h4><ul>${t.premios.map(p=>`<li>${esc(p)}</li>`).join("")}</ul>
+  <h4>Reglas</h4><ul>${t.reglas.map(p=>`<li>${esc(p)}</li>`).join("")}</ul>
+  <div class="mact"><button class="btn gold" data-ins="${i}" ${b.off?"disabled":""}>${b.txt}</button><button class="btn ghost" data-close>Cerrar</button></div></div>`;
+  modal.showModal();
+}
+document.addEventListener("click", e => {
+  const ins = e.target.closest("[data-ins]"), det = e.target.closest("[data-det]");
+  if (ins && !ins.disabled) inscribir(TORNEOS[ins.dataset.ins]);
+  else if (det) detalles(det.dataset.det);
+  else if (e.target.closest("[data-close]") || e.target === modal) modal.close();
+});
+
+/* gotas de elixir flotando de fondo */
+const fx = $("fx");
+for (let k = 0; k < 9; k++){
+  const d = document.createElement("span"); d.className = "drop";
+  d.style.left = (5 + k*11) + "%"; d.style.animationDuration = (14 + (k*5)%11) + "s"; d.style.animationDelay = (-k*2.3) + "s";
+  d.style.transform = "rotate(-45deg) scale(" + (0.6 + (k%3)*0.4) + ")";
+  fx.appendChild(d);
+}
+
+
+
+const ids = VIDEOS.map(u => ({u, id: (u.match(/\/video\/(\d+)/) || [])[1]})).filter(v => v.id);
+$("videos-grid").innerHTML = ids.length ? ids.map(v =>
+  `<div class="vcard"><iframe src="https://www.tiktok.com/embed/v2/${v.id}" loading="lazy" allowfullscreen allow="encrypted-media; fullscreen" title="Video de TikTok"></iframe><a href="${esc(v.u)}" target="_blank" rel="noopener">Abrir en TikTok</a></div>`).join("")
+  : `<div class="vempty">Aún no hay videos. Agrega los enlaces en la lista VIDEOS.</div>`;
+
+/* resalta la sección visible en el menú */
+const links = [...document.querySelectorAll("#nav a")];
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#"+e.target.id));
+}), {rootMargin:"-40% 0px -55% 0px"});
+links.forEach(a => { const s = document.querySelector(a.getAttribute("href")); if (s) io.observe(s); });
+</script>
+</body>
+</html>
